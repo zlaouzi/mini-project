@@ -1,0 +1,36 @@
+<html>
+<head>
+<style>
+.user-type{
+max-width: 700px;
+    margin: 48px auto;
+    border-radius: 5px;
+    padding: 29px;
+    background: #c7bfbf;
+    
+}
+.titlestyle{
+    padding: 2px 3px;
+}
+</style>
+</head>
+<h1>Listing all articles</h1>
+<p>
+<%= link_to "Create new article", new_article_path %>
+</p>
+<form class="user-type">
+<table>
+ <tr>
+  <th>Title</th>
+  <th>Description</th>
+ </tr>
+ <% Article.all.each do |article| %>
+ <tr>
+  <td style="color: white;"><strong><%= article.title %></strong></td>
+  <td><%= article.description %></td>
+  <td><%= link_to 'Edit', edit_article_path(article) %></td>
+ </tr>
+ <% end %>
+</table>
+</form>
+<html>
